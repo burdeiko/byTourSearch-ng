@@ -1,14 +1,14 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
-const countriesUrl = 'http://localhost:59911/api/countries/countries';
+const toursUrl = 'http://localhost:59911/api/tours/tours';
 
 @Injectable({
   providedIn: 'root'
 })
-export class CountryService {
-  constructor(private http: HttpClient) { }
-  getCountries() {
-    return this.http.get(countriesUrl)
+export class TourService {
+  constructor (private http: HttpClient) { }
+  getTours() {
+    return this.http.get(toursUrl);
   }
 }
