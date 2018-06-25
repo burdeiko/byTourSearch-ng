@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Country } from '../models/country';
-import {CountryService} from '../services/country.service';
+import { CountryService } from '../services/country.service';
+import { NgbDateStruct } from '@ng-bootstrap/ng-bootstrap';
 
 @Component({
   selector: 'app-tours',
@@ -10,8 +11,13 @@ import {CountryService} from '../services/country.service';
 
 export class ToursComponent implements OnInit {
   constructor(private countryService: CountryService) {
-    countryService.getCountries().subscribe((data: Country[]) => this.countries = data);
+    countryService.getCountries().subscribe(
+      (data: Country[]) => this.countries = data
+    );
+    
   }
+  dateFrom: NgbDateStruct;
+  dateTo: NgbDateStruct;
 
   ngOnInit() {
   }
