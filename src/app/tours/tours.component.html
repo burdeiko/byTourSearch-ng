@@ -1,0 +1,9 @@
+<div class="row">
+  <div class="col-lg-2">
+    <label>Country:</label>
+    <select class="form-control">
+      <option value="-1">Choose a country</option>
+      <option *ngFor="let country of countries" [value]="country.id">{{country.name}}</option>
+    </select>
+  </div>
+</div>
