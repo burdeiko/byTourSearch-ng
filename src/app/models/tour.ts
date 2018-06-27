@@ -1,4 +1,7 @@
+import { Hotel } from "./hotel";
+
 export interface Tour {
+    hotel: Hotel
     checkInDate: Date;
     duration: number;
     mealType: string;
