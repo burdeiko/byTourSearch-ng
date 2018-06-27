@@ -45,9 +45,9 @@
 </div>
 <div class="row">
     <div class="list-group" *ngIf="this.searchResults">
-        <div *ngFor="let hotel of getDistinctHotelsFromResults()">
-            <button [attr.aria-expanded]="!attr.aria-expanded" [attr.aria-controls]="'#collapse' + hotel.id" class="list-group-item">{{hotel.name}}</button>
-            <div class="collapse" [id]="'collapse' + hotel.id">
+        <div *ngFor="let hotel of searchResults.keys()">
+            <button [attr.aria-expanded]="!hotel.isCollapsed" [attr.aria-controls]="'#collapse' + hotel.id" class="list-group-item" (click)="hotel.isCollapsed = !hotel.isCollapsed" style="cursor: pointer;">{{hotel.name}}</button>
+            <div class="collapse" [id]="'collapse' + hotel.id" [ngbCollapse]="hotel.isCollapsed">
                 <table class="table">
                     <tr>
                         <th>CheckIn Date</th>
@@ -58,7 +58,7 @@
                         <th>TEZ Price</th>
                         <th>ABS Price</th>
                     </tr>
-                    <tr *ngFor="let tour of getToursForHotel(hotel.id)">
+                    <tr *ngFor="let tour of searchResults.get(hotel)">
                         <td>{{tour.checkInDate.toLocaleString()}}</td>
                         <td>{{tour.duration}}</td>
                         <td>{{tour.mealType}}</td>

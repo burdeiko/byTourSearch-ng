@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { SearchOptions } from '../models/searchOptions';
 
-const toursUrl = 'http://localhost:58521/api/tours/search';
+const toursUrl = 'http://localhost:5000/api/tours/search';
 
 @Injectable({
   providedIn: 'root'
